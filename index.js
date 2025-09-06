@@ -19,7 +19,7 @@ function log(msg)
 {
     console.log(`[$] ${msg}`);
 }
-app.get("/v4710_remoteConfig/fetch",(req,res)=>{
+app.get("/v4720_remoteConfig/fetch",(req,res)=>{
     fs.readFile('./RemoteConfig.json', 'utf8', (err, data) => {
         if (err) {
           console.error('Error reading file:', err);
@@ -30,19 +30,19 @@ app.get("/v4710_remoteConfig/fetch",(req,res)=>{
         res.json(info);
       });
 });
-app.post("/v4710_battePass/getActivePassConfig",(req,res)=>{
+app.post("/v4720_battePass/getActivePassConfig",(req,res)=>{
     res.json({"banner_image":{"image_data_type":"Url","image_data":{"url":"https://justplay-cdn.playtika.com/justbuild/1v1Images/Automations/Seasons/AquaRealm/logo512.png"}},"premium_popup_config":{"background_image":{"image_data_type":"Url","image_data":{"url":"https://justplay-cdn.playtika.com/justbuild/1v1Images/Automations/Seasons/AquaRealm/Web_ActivatePopup.jpg"}}},"is_timer_visible":true,"display_new_bp_popup":false,"BackgroundImage":{"image_data_type":"Url","image_data":{"url":"https://justplay-cdn.playtika.com/justbuild/1v1Images/Automations/Seasons/AquaRealm/BG.jpg"}},"LobbyButtonImage":{"image_data_type":"Url","image_data":{"url":"https://i.ibb.co/hf2k26T/image.png"}},"activate_button_action":{"Actions":[{"ActionName":"PopUp","ActionValues":{"popup_type":"subscription","product_id":"lol.1v1.subscription.basic"}}]},"battle_pass":{"placement_xp":[10,3],"tiers":[{"xp":0,"is_premium_unique":false,"free_rewards":["lol.1v1.lolbox.ultra"],"premium_rewards":["lol.1v1.lolbox.ultra"],"tier_up_price":420}],"currentSeason":"0","battlePassId":"0"},"current_season":"0","start_date":"2024-07-15T21:00:00.059Z","end_date":"2137-08-14T21:00:00.496Z"})
 });
-app.post("/v4710_albums/getActiveAlbumConfig",(req,res)=>{
+app.post("/v4720_albums/getActiveAlbumConfig",(req,res)=>{
     res.status(204);
 })
-app.get("/v4710_challenges/getChallengesData",(req,res)=>{
+app.get("/v4720_challenges/getChallengesData",(req,res)=>{
     res.json({});
 })
-app.get("/v4710_player/getRegionInfo",(req,res)=>{
+app.get("/v4720_player/getRegionInfo",(req,res)=>{
     res.json({"Country":"US","Region":"CA","AgeGateLimit":13,"HasAgeGate":true,"IsBlocked":false});
 })
-app.get("/v4710_player/login", (req, res) => {
+app.get("/v4720_player/login", (req, res) => {
     const userid = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(userid, (err, data) => {
         if (err) {
@@ -54,22 +54,22 @@ app.get("/v4710_player/login", (req, res) => {
     });
 });
 
-app.get("/v4710_userSettings/time",(req,res)=>{
+app.get("/v4720_userSettings/time",(req,res)=>{
     res.send("\"Tue, 30 Jul 2024, 19:50:25\"");
 })
-app.get("/v4710_leaderboards/getLeaderboardsData",(req,res)=>{
+app.get("/v4720_leaderboards/getLeaderboardsData",(req,res)=>{
     res.json({});
 })
-app.get("/v4710_battlePass/refreshBattlePass",(req,res)=>{
+app.get("/v4720_battlePass/refreshBattlePass",(req,res)=>{
     res.json({"Seasons":{},"XPBankData":{"LastXPRefreshTimestamp":1696783346662,"XPLeft":-480}});
 })
-app.get("/v4710_friends",(req,res)=>{
+app.get("/v4720_friends",(req,res)=>{
     res.json({"Friends": []});
 })
-app.get("/v4710_friends/friendData",(req,res)=>{
+app.get("/v4720_friends/friendData",(req,res)=>{
     res.json({});
 })
-app.post("/v4710_player/emotes/character/update", (req, res) => {
+app.post("/v4720_player/emotes/character/update", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -99,7 +99,7 @@ app.post("/v4710_player/emotes/character/update", (req, res) => {
         }
     });
 });
-app.post("/v4710_player/skins/character/equip/weapon", (req, res) => {
+app.post("/v4720_player/skins/character/equip/weapon", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -129,7 +129,7 @@ app.post("/v4710_player/skins/character/equip/weapon", (req, res) => {
     });
 });
 
-app.post("/v4710_champions/equip", (req, res) => {
+app.post("/v4720_champions/equip", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -150,7 +150,7 @@ app.post("/v4710_champions/equip", (req, res) => {
     });
 });
 
-app.get("/v4710_player/updateProgressAndStats", (req, res) => {
+app.get("/v4720_player/updateProgressAndStats", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -204,7 +204,7 @@ app.get("/v4710_player/updateProgressAndStats", (req, res) => {
         });
     });
 });
-app.post("/v4710_rankRoad/claimRoadReward", (req, res) => {
+app.post("/v4720_rankRoad/claimRoadReward", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -268,7 +268,7 @@ app.post("/v4710_rankRoad/claimRoadReward", (req, res) => {
         });
     });
 });
-app.post("/v4710_player/nickname", (req, res) => {
+app.post("/v4720_player/nickname", (req, res) => {
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     const newnickname = req.body.nickname;
     database.getUserData(token, (err, data) => {
@@ -289,7 +289,7 @@ app.post("/v4710_player/nickname", (req, res) => {
         });
     });
 });
-app.post("/v4710_champions/upgrade",(req,res)=>{
+app.post("/v4720_champions/upgrade",(req,res)=>{
     var champion = req.body.championId
     var levelsToAdd = req.body.levelsToAdd
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
@@ -324,7 +324,7 @@ app.post("/v4710_champions/upgrade",(req,res)=>{
         });
     })
 })
-app.post("/v4710_product/coinPurchase",(req,res)=>{
+app.post("/v4720_product/coinPurchase",(req,res)=>{
     const token = buffer.from((req.headers['x-forwarded-for'] || req.socket.remoteAddress)+req.headers['Host']).toString('base64');;
     database.getUserData(token, (err, data) => {
         if (err) {
@@ -348,4 +348,4 @@ app.post("/v4710_product/coinPurchase",(req,res)=>{
         });
     })
 })
-app.listen(80);
+app.listen(3551);

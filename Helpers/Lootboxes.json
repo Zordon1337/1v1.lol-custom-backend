@@ -1,17 +1,17 @@
 [
     {
         "LootBoxId": "lol.1v1.lolbox.capsule_silver_plus",
-        "LootBoxLevel": 4,
+        "LootBoxLevel": 999,
         "LootBoxGuid": "ba7023b8-3220-794d-6bc6-393b744b4103"
       },
       {
         "LootBoxId": "lol.1v1.lolbox.capsule_silver_plus",
-        "LootBoxLevel": 2,
+        "LootBoxLevel": 999,
         "LootBoxGuid": "d44bb123-f186-8d34-cb1d-18feeeaba3eb"
       },
       {
         "LootBoxId": "lol.1v1.lolbox.capsule_silver_plus",
-        "LootBoxLevel": 4,
+        "LootBoxLevel": 999,
         "LootBoxGuid": "79073865-d247-bfda-fd31-0fc0144ecae6"
       }
 ]
